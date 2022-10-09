@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import Navbar from "./layout/Navbar";
+import Home from "./pages/Home";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+// import AddUser from "./users/AddUser";
+// import EditUser from "./users/EditUser";
+// import ViewUser from "./users/ViewUser";
+
+// TODO removed exact - test
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Router>
+                <Navbar/>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    {/*<Route path="/adduser" element={<AddUser/>}/>*/}
+                    {/*<Route path="/edituser/:id" element={<EditUser/>}/>*/}
+                    {/*<Route path="/viewuser/:id" element={<ViewUser/>}/>*/}
+                </Routes>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
