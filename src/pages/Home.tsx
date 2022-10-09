@@ -1,14 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import axios, {AxiosResponse} from 'axios';
-import {Link, useParams} from "react-router-dom";
+import axios from 'axios';
+import {Link} from "react-router-dom";
 import Counter from "../customcomponents/Counter";
-
-interface User {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-}
+import {User} from "../users/User";
 
 // export default
 const Home: React.FC = (props) => {
@@ -16,7 +10,7 @@ const Home: React.FC = (props) => {
     // Array<User> / User[]
     const [users, setUsers] = useState<Array<User>>([]);
 
-    const {id} = useParams<string>();
+    // const {id} = useParams<string>();
 
     useEffect(() => {
         loadUsers();
